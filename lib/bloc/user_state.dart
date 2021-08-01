@@ -1,3 +1,5 @@
+import 'package:bloc_practics_1/models/user.dart';
+
 abstract class UserState {}
 
 class UserEmptyState extends UserState {}
@@ -5,7 +7,7 @@ class UserEmptyState extends UserState {}
 class UserLoadingState extends UserState {}
 
 class UserLoadedState extends UserState {
-  List<dynamic> laodedUser;
+  List<User> laodedUser;
 
   UserLoadedState(this.laodedUser);
 }
