@@ -1,13 +1,11 @@
+import 'package:bloc_practics_1/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../bloc/user_bloc.dart';
-import '../bloc/user_event.dart';
 
 class ActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final UserBloc userBloc = BlocProvider.of<UserBloc>(context);
+    final UserCubit userCubit = context.read<UserCubit>();
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -16,7 +14,7 @@ class ActionButtons extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              userBloc.add(UserLoadEvent());
+              userCubit.fetchUsers();
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -27,7 +25,7 @@ class ActionButtons extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              userBloc.add(UserClearEvent());
+              userCubit.clearhUsers();
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

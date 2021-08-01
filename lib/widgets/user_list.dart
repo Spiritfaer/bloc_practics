@@ -1,13 +1,13 @@
+import 'package:bloc_practics_1/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/user_bloc.dart';
-import '../bloc/user_state.dart';
+import '../cubit/user_state.dart';
 
 class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
+    return BlocBuilder<UserCubit, UserState>(
       builder: (BuildContext context, UserState state) {
         if (state is UserEmptyState) {
           return Center(child: Text('Empty list\nPress load data.'));
